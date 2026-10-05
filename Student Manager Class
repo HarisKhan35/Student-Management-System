@@ -1,0 +1,116 @@
+package com.mycompany.main;
+
+/**
+ *
+ * @author Global Computer M
+ */
+import java.util.ArrayList;
+import java.util.Scanner;
+public class Student_Manager {
+    public boolean found;
+    Scanner input = new Scanner(System.in);
+    ArrayList <Student> s = new ArrayList<>();
+    ArrayList <Result> results = new ArrayList<>();
+    public void viewresult(){
+        found=false;
+        System.out.println("Kindly enter the student id for which you want to view the result: ");
+        int Vid = input.nextInt();
+        for(Result r : results){
+            if(Vid==r.getStudent().getStd_id()){
+                found = true;
+                System.out.println("Result record Found!");
+                System.out.printf("Marks in CS: %d\n",r.getCsmarks());
+                System.out.printf("Marks in Maths: %d\n",r.getMathmarks());
+                System.out.printf("Marks in Phys: %d\n",r.getPhymarks());
+                break;
+                                   }
+    }
+        if(!found){
+            System.out.println("Enter valid student id!");
+        }
+    }
+    public void addresult(){
+        found = false;
+        System.out.println("Kindly enter the stu id: ");
+        int Srid = input.nextInt();
+        for(Student s4: s){
+            if(Srid==s4.getStd_id()){
+                found = true;
+                System.out.println("kindly enter marks in cs for this id: ");
+                int m1 = input.nextInt();
+                System.out.println("Kindly enter marks in maths for this id: ");
+                int m2 = input.nextInt();
+                System.out.println("Kindly enter marks in phy for this id: ");
+                int m3 = input.nextInt();
+                results.add(new Result(s4,m1,m2,m3));
+                System.out.println("Student result added successfully!");
+                break;
+            }
+            }
+        if(found==false){
+            System.out.println("Enter valid student id!");
+            
+            }
+        }
+    
+    public void addStudent(int std_id,String std_name,String stu_department,int std_currentsem){
+        s.add(new Student(std_id,std_name,stu_department,std_currentsem));
+    }
+    public void Deletestudent_by_id(){
+        found = false;
+        System.out.println("Enter the student id that you want to delete: ");
+        int del_id = input.nextInt();
+        for(int i = 0; i < s.size(); i++) {
+            if(del_id == s.get(i).getStd_id()){
+                found = true;
+            s.remove(i);
+            System.out.println("Student record deleted!");
+            break;
+                                              }
+                                           }
+        if(!found){
+            System.out.println("Enter a valid student id!");
+        }
+                                       }                            
+    public void SearchStudent(){
+         found =false;
+        System.out.println("Kindly enter the student id you want to search: ");
+        int Sid = input.nextInt();
+        for(Student s2: s){
+            if(Sid==s2.getStd_id()){
+                found = true;
+                System.out.println("Student record found!");
+                System.out.printf("Student name: %s\n", s2.getStd_name());
+                System.out.printf("Student Department: %s\n",s2.getStu_department());
+                System.out.printf("Student current semester: %d\n", s2.getStd_currentsem());
+                break;
+            }
+           
+        }
+        if(!found){
+            System.out.println("Student with this id not found!");
+        }
+    }
+    public void UpdateStudentInfo(int std_id,String std_name,String stu_department,int std_currentsem){
+        System.out.println("Kindly enter the student id you want to update: ");
+        int sid = input.nextInt();
+        found = false;
+        for(Student s3: s){
+            if(sid==s3.getStd_id()){
+                found= true;
+                s3.setStd_id(std_id);
+                s3.setStd_name(std_name);
+                s3.setStu_department(stu_department);
+                s3.setStd_currentsem(std_currentsem);
+            }
+        }
+        if(!found){
+            System.out.println("Kindly enter valid student id!");
+    }
+    }
+    public void Display(){
+        for(Student st: s){
+            System.out.println(st);
+    }
+}
+}
