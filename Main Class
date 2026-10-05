@@ -1,0 +1,73 @@
+package com.mycompany.main;
+
+/**
+ *
+ * @author Global Computer M
+ */
+import java.util.Scanner;
+public class Main {
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        Student_Manager Manager = new Student_Manager();
+        while(true){
+            System.out.println("1. Add Student: ");
+            System.out.println("2. Search Student: ");
+            System.out.println("3. Update Student: ");
+            System.out.println("4. Display Student: ");
+            System.out.println("5. Delete Student: ");
+            System.out.println("7. Add Result: ");
+            System.out.println("6. View Result: ");
+            System.out.println("Enter 8 for exit: ");
+            System.out.println("Note: A student result result must be added before viewing!");
+            System.out.println("Enter your choice: ");
+            int op = input.nextInt();
+            switch(op){
+                case 1:
+                    System.out.println("Enter id: ");
+                    int id = input.nextInt();
+                    input.nextLine();
+                    System.out.println("Enter name: ");
+                    String name = input.nextLine();
+                    System.out.println("Enter Department: ");
+                    String depart = input.nextLine();
+                    System.out.println("Enter current semester: ");
+                    int  csem = input.nextInt();
+                    Manager.addStudent(id,name,depart,csem);
+                    System.out.println("Student record successfully added!");
+                    break;
+                case 2:
+                    Manager.SearchStudent();
+                    break;
+                case 3: 
+                    System.out.println("Enter updated id: ");
+                    int uid = input.nextInt();
+                    input.nextLine();
+                    System.out.println("Enter updated name: ");
+                    String uname = input.nextLine();
+                    System.out.println("Enter department: ");
+                    String Udepart = input.nextLine();
+                    System.out.println("Enter updated semseter: ");
+                    int Ucs = input.nextInt();
+                    Manager.UpdateStudentInfo(uid, uname, Udepart, Ucs);
+                    System.out.println("Student record updated!");
+                    break;
+                case 4:
+                    Manager.Display();
+                    break;
+                case 5:
+                    Manager.Deletestudent_by_id();
+                    break;
+                case 6:
+                    Manager.viewresult();
+                    break;
+                case 7:    
+                    Manager.addresult();
+                    break;
+                case 8:
+                    System.out.println("Program terminated!");
+                    return;
+    }          
+    }
+    }
+}
