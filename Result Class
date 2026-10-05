@@ -1,0 +1,37 @@
+package com.mycompany.main;
+
+/**
+ *
+ * @author Global Computer M
+ */
+
+public class Result {
+    private Student student;
+    private int csmarks;
+    private int mathmarks;
+    private int phymarks;
+    public Result(Student student,int csmarks,int mathmarks,int phymarks){
+        this.student = student;
+        this.csmarks = csmarks;
+        this.mathmarks = mathmarks;
+        this.phymarks = phymarks;
+    }
+
+    public int getCsmarks() {
+        return csmarks;
+    }
+
+    public int getMathmarks() {
+        return mathmarks;
+    }
+
+    public int getPhymarks() {
+        return phymarks;
+    }
+    public Student getStudent(){
+
+    return student;
+
+}
+    
+}
